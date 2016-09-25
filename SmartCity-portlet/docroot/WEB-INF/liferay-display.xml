@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.1.0//EN" "http://www.liferay.com/dtd/liferay-display_6_1_0.dtd">
+
+<display>
+	<category name="category.sample">
+		<portlet id="SmartCity" />
+		<portlet id="frame"></portlet>
+		<portlet id="functionmanage"></portlet>
+		<portlet id="dataset_npt"></portlet>
+		<portlet id="dataset"></portlet>
+		<portlet id="datasetmanage"></portlet>
+		<portlet id="metadatamanage"></portlet>
+		<portlet id="datasetupload"></portlet>
+		<portlet id="visualmanage"></portlet>
+		<portlet id="decisioncreate"></portlet>
+		<portlet id="mapplotuicreate"></portlet>
+		<portlet id="chartlineuicreate"></portlet>
+		<portlet id="chartbaruicreate"></portlet>
+		<portlet id="mapplaneuicreate"></portlet>
+	</category>
+</display>
