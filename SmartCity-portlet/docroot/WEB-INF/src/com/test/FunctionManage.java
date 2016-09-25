@@ -33,13 +33,12 @@ public class FunctionManage extends MVCPortlet {
 	public void render(RenderRequest renderRequest,
 			RenderResponse renderResponse) throws PortletException, IOException {
 		if (renderRequest.getParameter("jspPage") == null) {
-			// È·±£ÔÚÆäËûactionurlÌø×ªµÄÊ±ºò£¬²»Ö´ÐÐÏÂÃæµÄÓï¾ä
 			setallfuncations(renderRequest);
 		}
 		super.render(renderRequest, renderResponse);
 	}
 
-	// ´ÓÊý¾Ý¿â»ñÈ¡ËùÓÐ²Ëµ¥ÄÚÈÝ£¬²¢´æ´¢µ½Êý¾Ý
+	// ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð²Ëµï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½
 	private void setallfuncations(RenderRequest renderRequest) {
 		ClientConfig config = new ClientConfig();
 		config.register(JacksonFeature.class);
@@ -53,14 +52,13 @@ public class FunctionManage extends MVCPortlet {
 		renderRequest.setAttribute("Menus", b1);
 	}
 
-	// Ìø×ªµ½´´½¨Ò³Ãæ
+	// ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 	public void tonew(ActionRequest renderRequest, ActionResponse renderResponse)
 			throws IOException, PortletException {
-		// »ñÈ¡ËùÓû¶þ¼¶¼°ÒÔÉÏ²Ëµ¥ÄÚÈÝ
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 		ClientConfig config = new ClientConfig();
 		config.register(JacksonFeature.class);
 		Client client = ClientBuilder.newClient(config);
-		System.out.println("dsdfddddddd");
 		WebTarget target = client
 				.target(this.getInitParameter("resturl") + "/getallmenus/2");
 		GenericType<List<Menu>> genericType = new GenericType<List<Menu>>() {
@@ -73,10 +71,10 @@ public class FunctionManage extends MVCPortlet {
 		renderRequest.setAttribute("Menus", b);
 	}
 
-	// Ìø×ªµ½¸üÐÂÒ³Ãæ
+	// ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
 	public void toupdate(ActionRequest renderRequest,
 			ActionResponse renderResponse) throws IOException, PortletException {
-		// »ñÈ¡ËùÓû¶þ¼¶¼°ÒÔÉÏ²Ëµ¥ÄÚÈÝ
+		// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 		ClientConfig config = new ClientConfig();
 		config.register(JacksonFeature.class);
 		Client client = ClientBuilder.newClient(config);
@@ -87,7 +85,7 @@ public class FunctionManage extends MVCPortlet {
 		List<Menu> b = target.request(MediaType.APPLICATION_JSON_TYPE)
 				.accept(MediaType.APPLICATION_JSON).get(genericType);
 		renderRequest.setAttribute("Menus", b);
-		// ¼ÌÐøµ÷ÓÃ·þÎñ»ñÈ¡ÐèÒªµÄ
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Òªï¿½ï¿½
 		String id = renderRequest.getParameter("id");
 		target = client
 				.target(this.getInitParameter("resturl") + "/getmenuitem/"
@@ -99,7 +97,7 @@ public class FunctionManage extends MVCPortlet {
 		renderRequest.setAttribute("item", item);
 	}
 
-	// µ÷ÓÃºóÌ¨·þÎñ´æ´¢Êý¾Ý
+	// ï¿½ï¿½ï¿½Ãºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½
 	public void addfunction(ActionRequest renderRequest,
 			ActionResponse renderResponse) throws IOException, PortletException {
 		try {
@@ -118,9 +116,9 @@ public class FunctionManage extends MVCPortlet {
 							MediaType.APPLICATION_FORM_URLENCODED),
 							boolean.class);
 			if (smtealarm == true) {
-				System.out.println("³É¹¦ÐÂ½¨");
+				System.out.println("ï¿½É¹ï¿½ï¿½Â½ï¿½");
 			} else {
-				System.out.println("ÐÂ½¨Ê§°Ü");
+				System.out.println("ï¿½Â½ï¿½Ê§ï¿½ï¿½");
 			}
 
 		} catch (Exception e) {
@@ -128,14 +126,14 @@ public class FunctionManage extends MVCPortlet {
 		}
 	}
 
-	// ½«Ç°Ì¨Ò³ÃæµÄÊý¾Ý×éºÏ³É×Ö·û´®´«¸øºóÌ¨Ê¹ÓÃ
+	// ï¿½ï¿½Ç°Ì¨Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï³ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ì¨Ê¹ï¿½ï¿½
 	private String getrenderdata(ActionRequest renderRequest) {
 		Enumeration<String> list = renderRequest.getParameterNames();
 		Map<String, String> json = new HashMap<String, String>();
 		while (list.hasMoreElements()) {
 			String name = list.nextElement();
 			String value = renderRequest.getParameter(name).trim();
-			// ½«valueÖÐ","ºóµÄÁ¬Ðø¿Õ¸ñÈ¥µô
+			// ï¿½ï¿½valueï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½È¥ï¿½ï¿½
 			int i = 0;
 			i = value.indexOf(",", i);
 			while (i > -1) {
@@ -151,7 +149,7 @@ public class FunctionManage extends MVCPortlet {
 		return json.toString();
 	}
 
-	// µ÷ÓÃºóÌ¨·þÎñ¸üÐÂÊý¾Ý
+	// ï¿½ï¿½ï¿½Ãºï¿½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void updatefunction(ActionRequest renderRequest,
 			ActionResponse renderResponse) throws IOException, PortletException {
 		try {
@@ -171,9 +169,9 @@ public class FunctionManage extends MVCPortlet {
 							MediaType.APPLICATION_FORM_URLENCODED),
 							boolean.class);
 			if (smtealarm == true) {
-				System.out.println("¸üÐÂ³É¹¦");
+				System.out.println("ï¿½ï¿½ï¿½Â³É¹ï¿½");
 			} else {
-				System.out.println("¸üÐÂÊ§°Ü");
+				System.out.println("ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");
 			}
 
 		} catch (Exception e) {
@@ -181,7 +179,7 @@ public class FunctionManage extends MVCPortlet {
 		}
 	}
 
-	// É¾³ýÄ³¸ö¹¦ÄÜ
+	// É¾ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public void deletefunction(ActionRequest renderRequest,
 			ActionResponse renderResponse) {
 		try{
@@ -195,9 +193,9 @@ public class FunctionManage extends MVCPortlet {
 			Boolean b = target.request(MediaType.APPLICATION_JSON_TYPE)
 				.accept(MediaType.APPLICATION_JSON).get(genericType);
 			if(b){
-				System.out.println("É¾³ý³É¹¦");
+				System.out.println("É¾ï¿½ï¿½É¹ï¿½");
 			}else{
-				System.out.println("É¾³ýÊ§°Ü");
+				System.out.println("É¾ï¿½ï¿½Ê§ï¿½ï¿½");
 			}
 		}catch(Exception e){
 			System.out.println(e.getMessage());

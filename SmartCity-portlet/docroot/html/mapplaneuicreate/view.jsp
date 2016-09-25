@@ -98,7 +98,6 @@
 		}
 		function init(){
 			
-			
 			map= new AMap.Map('map', {
 			    resizeEnable: true,
 			    zoom:14,
@@ -193,15 +192,9 @@
 			showattr.eng=attr;
 			showattr.chs=$("#sel_attr").find("option:selected").text();
 			$.ajax({
-				type : "POST",
-				url : "http://localhost:8081/plane/search-by-yma?callback=?",
-				data : {
-					"year":year,
-					"month":month,
-					"attr":attr
-				},
-				dataType: "jsonp",
-				jsonp: "callback",
+				type : "GET",
+				url : "http://localhost:8280/oaweb_services/rest/SmartCity/search-by-yma/"+year+"/"+month+"/"+attr,
+				datatype:"json",
 				success : function(data) {
 					console.log(data);
 					drawPolygon(attr,data);
